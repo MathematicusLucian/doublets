@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Doublets;
+namespace Doublets.Tests;
 
 [TestFixture]
 public class Doublets_Test1
