@@ -15,6 +15,8 @@ namespace Doublets.App
         {
             public void ValidateArgs()
             {
+                if (StartWord.Length < 4) throw new ArgumentException($"StartWord length should be 4 characters");
+                if (EndWord.Length < 4) throw new ArgumentException($"EndWord length should be 4 characters");
                 if (!File.Exists(DictionaryFile)) throw new ArgumentException($"DictionaryFile file not found: {DictionaryFile}");
             }
 
@@ -60,9 +62,7 @@ namespace Doublets.App
                             else
                             {
                                 // Write the result to the ResultFile
-                                File.WriteAllLines(resultFile, result);
-                                Console.WriteLine("Doublets - Path: {0} | Length: {1}",result,result.Count);
-                                Console.WriteLine("Doublets path written to " + resultFile);
+                                ResultsOutput(resultFile, result);
                             }
                         }
                         catch (Exception ex)
@@ -76,6 +76,13 @@ namespace Doublets.App
             {
                 Console.WriteLine("Usage: -d <DictionaryFile> -o <ResultFile> -s <StartWord> -e <EndWord>");
             }
+        }
+
+        public static void ResultsOutput(string resultFile, List<string> result)
+        {
+            File.WriteAllLines(resultFile, result);
+            Console.WriteLine("Doublets - Path: {0} | Length: {1}",String.Join(",",result),result.Count);
+            Console.WriteLine("Doublets path written to " + resultFile);
         }
     }
 }
