@@ -9,12 +9,23 @@ public class DictionaryUtils
 {
     public static HashSet<string>? LoadDictionary(string dictionaryFile)
     {
-        return new HashSet<string>(
+        HashSet<string>? dictionaryWords = new HashSet<string>(
             File.ReadAllLines(dictionaryFile)
             .Where(word => word.Length == 4)
             .Select(word => word.ToLower())
         );
+
+        // Filter to words by length
+        // Task dictionaryWords = await GetWordsByLength(dictionaryWords, 4);
+
+        return dictionaryWords;
     }
+
+    // public static async Task<HashSet<string>>? GetWordsByLength(HashSet dictionaryWords, int wordsLengthFilterValue)
+    // {
+    //     Task.Delay(3000).Wait();
+    //     return dictionaryWords;
+    // }
 
     public static List<string>? GetValidNeighbors(string word, HashSet<string> dictionary)
     {
