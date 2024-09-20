@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Doublets.Library;
 
-public class ASearch : IDoubletsSearch
+public class ASearch
 {
     public static List<string> FindPath(HashSet<string> dictionary, string startWord, string endWord)
     {

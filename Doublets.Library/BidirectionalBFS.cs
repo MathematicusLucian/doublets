@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Doublets.Library;
 
-public class BidirectionalBFS : IDoubletsSearch
+public class BidirectionalBFS 
 {
     public static List<string> FindPath(HashSet<string> dictionary, string startWord, string endWord)
     {

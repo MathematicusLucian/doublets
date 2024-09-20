@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Doublets.Library;
 
-public class BreadthFirstSearch : IDoubletsSearch
+public class BreadthFirstSearch 
 {
     // BFS to find the shortest transformation sequence
     public static List<string> FindPath(HashSet<string> dictionary, string startWord, string endWord)
