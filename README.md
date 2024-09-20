@@ -50,6 +50,16 @@ In addition to **Breadth-First Search (BFS)**, which is the most suitable algori
 - **Bidirectional BFS** or **A\*** could be useful for performance optimization in large datasets.
 - Algorithms like **DFS**, **Greedy**, and **Genetic Algorithms** may be interesting but are not well-suited for ensuring the shortest path, which is required here.
 
+### Implementions
+
+Key Differences in Bidirectional BFS:
+
+- **Two Queues**: We start BFS from both the `startWord` and `endWord` simultaneously.
+- **Bidirectional BFS**: We now maintain two BFS queues (`startQueue` and `endQueue`) and search from both `startWord` and `endWord`.
+- **Visited Dictionaries**: Two C# dictionaries, `startVisited` and `endVisited`, are used to store the visited words from both directions, along with the parent word used to reconstruct the path.
+- **Early Termination**: The search terminates early when the two BFS searches meet in the middle.
+- **Path Reconstruction**: When the two BFS searches meet, the full path is reconstructed by combining the paths from the `startWord` and `endWord`.
+
 ## Testing
 
 ### Unit tests ('red-green refactor'/TDD):
