@@ -25,7 +25,7 @@ public class Doublets_Test1
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord);
+        List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.That(result.Count, Is.GreaterThan(0));
@@ -42,7 +42,7 @@ public class Doublets_Test1
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord);
+        List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.IsEmpty(result); // No valid path from spin to spot
@@ -58,7 +58,7 @@ public class Doublets_Test1
         string endWord = "spot";
 
         // Act & Assert
-        Assert.IsEmpty(BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord)); // startWord not in dictionary
+        Assert.IsEmpty(BreadthFirstSearch.FindPath(dictionary, startWord, endWord)); // startWord not in dictionary
     }
 
     // Test 4: Verify the end word is not in the dictionary
@@ -71,7 +71,7 @@ public class Doublets_Test1
         string endWord = "spot";
 
         // Act & Assert
-        Assert.IsEmpty(BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord)); // endWord not in dictionary
+        Assert.IsEmpty(BreadthFirstSearch.FindPath(dictionary, startWord, endWord)); // endWord not in dictionary
     }
 
     // Test 5: Verify when dictionary is empty
@@ -84,7 +84,7 @@ public class Doublets_Test1
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord);
+        List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.IsEmpty(result); // No transformation is possible with an empty dictionary
@@ -100,7 +100,7 @@ public class Doublets_Test1
         string endWord = "spin";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord);
+        List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.That(result.Count, Is.GreaterThan(0));
@@ -117,7 +117,7 @@ public class Doublets_Test1
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord);
+        List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.IsEmpty(result); // No intermediate steps are available to transform spin to spot
@@ -133,7 +133,7 @@ public class Doublets_Test1
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord);
+        List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.That(result.Count, Is.GreaterThan(0));

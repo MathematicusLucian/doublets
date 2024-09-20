@@ -48,7 +48,7 @@ namespace Doublets.App
                         HashSet<string> dictionary = DictionaryUtils.LoadDictionary(dictionaryFile);
 
                         // Find the shortest transformation sequence
-                        List<string> result = BreadthFirstSearch.FindTransformationUsingBFS(dictionary, startWord, endWord);
+                        List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
 
                         if (result == null)
                         {

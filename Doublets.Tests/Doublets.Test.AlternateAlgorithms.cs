@@ -26,7 +26,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBidirectionalBFS(dictionary, startWord, endWord);
+        List<string> result = BidirectionalBFS.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.That(result.Count, Is.GreaterThan(0));
@@ -44,7 +44,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBidirectionalBFS(dictionary, startWord, endWord);
+        List<string> result = BidirectionalBFS.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.IsEmpty(result); // No valid path from spin to spot
@@ -60,7 +60,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act & Assert
-        Assert.IsEmpty(BreadthFirstSearch.FindTransformationUsingBidirectionalBFS(dictionary, startWord, endWord)); // startWord not in dictionary
+        Assert.IsEmpty(BidirectionalBFS.FindPath(dictionary, startWord, endWord)); // startWord not in dictionary
     }
 
     // Test 4: Verify the end word is not in the dictionary
@@ -73,7 +73,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act & Assert
-        Assert.IsEmpty(BreadthFirstSearch.FindTransformationUsingBidirectionalBFS(dictionary, startWord, endWord)); // endWord not in dictionary
+        Assert.IsEmpty(BidirectionalBFS.FindPath(dictionary, startWord, endWord)); // endWord not in dictionary
     }
 
     // Test 5: Verify when dictionary is empty
@@ -86,7 +86,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBidirectionalBFS(dictionary, startWord, endWord);
+        List<string> result = BidirectionalBFS.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.IsEmpty(result); // No transformation is possible with an empty dictionary
@@ -102,7 +102,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spin";
 
         // Act
-        List<string> result = BreadthFirstSearch.FindTransformationUsingBidirectionalBFS(dictionary, startWord, endWord);
+        List<string> result = BidirectionalBFS.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.NotNull(result);
@@ -124,7 +124,7 @@ public class AlternateAlgorithms_Test
     //     string endWord = "spot";
 
     //     // Act
-    //     List<string> result = ASearch.FindShortestTransformationUsingAStar(dictionary, startWord, endWord);
+    //     List<string> result = ASearch.FindPath(dictionary, startWord, endWord);
 
     //     // Assert
 
@@ -144,7 +144,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act
-        List<string> result = ASearch.FindShortestTransformationUsingAStar(dictionary, startWord, endWord);
+        List<string> result = ASearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.IsEmpty(result); // No valid path from spin to spot
@@ -160,7 +160,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act & Assert
-        Assert.IsEmpty(ASearch.FindShortestTransformationUsingAStar(dictionary, startWord, endWord)); // startWord not in dictionary
+        Assert.IsEmpty(ASearch.FindPath(dictionary, startWord, endWord)); // startWord not in dictionary
     }
 
     // Test 4: Verify the end word is not in the dictionary
@@ -173,7 +173,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act & Assert
-        Assert.IsEmpty(ASearch.FindShortestTransformationUsingAStar(dictionary, startWord, endWord)); // endWord not in dictionary
+        Assert.IsEmpty(ASearch.FindPath(dictionary, startWord, endWord)); // endWord not in dictionary
     }
 
     // Test 5: Verify when dictionary is empty
@@ -186,7 +186,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spot";
 
         // Act
-        List<string> result = ASearch.FindShortestTransformationUsingAStar(dictionary, startWord, endWord);
+        List<string> result = ASearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.IsEmpty(result); // No transformation is possible with an empty dictionary
@@ -202,7 +202,7 @@ public class AlternateAlgorithms_Test
         string endWord = "spin";
 
         // Act
-        List<string> result = ASearch.FindShortestTransformationUsingAStar(dictionary, startWord, endWord);
+        List<string> result = ASearch.FindPath(dictionary, startWord, endWord);
 
         // Assert
         Assert.NotNull(result);
@@ -220,7 +220,7 @@ public class AlternateAlgorithms_Test
     //     string endWord = "spat";
 
     //     // Act
-    //     List<string> result = ASearch.FindShortestTransformationUsingAStar(dictionary, startWord, endWord);
+    //     List<string> result = ASearch.FindPath(dictionary, startWord, endWord);
 
     //     // Assert
     //     Assert.NotNull(result);

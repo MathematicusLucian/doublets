@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Doublets.Library;
 
-public class ASearch
+public class ASearch : IDoubletsSearch
 {
-    public static List<string> FindShortestTransformationUsingAStar(HashSet<string> dictionary, string startWord, string endWord)
+    public static List<string> FindPath(HashSet<string> dictionary, string startWord, string endWord)
     {
         // Validate the StartWord and EndWord
         if (!dictionary.Contains(startWord) || !dictionary.Contains(endWord))
