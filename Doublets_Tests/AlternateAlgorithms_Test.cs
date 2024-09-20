@@ -11,6 +11,7 @@ public class AlternateAlgorithms_Test
     {
     }
 
+    // --------------------------------
     // Unit Tests for Bidirectional BFS
     // --------------------------------
 
