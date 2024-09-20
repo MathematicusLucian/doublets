@@ -2,6 +2,8 @@
 
 A C#.NET console application to compute the shortest sequence of four-letter words from a `StartWord` to an `EndWord` by transforming one letter at a time. Each intermediate word must be present in the dictionary file, and the result should be written to the specified output file.
 
+This is essentially graph traversal (visiting vertices/edges exactly once, in a well-defined order) of a binary tree.
+
 ## Functionality
 
 1. **Command-line Argument Parsing:** The program takes 4 arguments: `DictionaryFile`, `StartWord`, `EndWord`, and `ResultFile`. It ensures the correct number of arguments and handles the cases where the dictionary file is missing.
