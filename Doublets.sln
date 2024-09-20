@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doublets.App", "Doublets.App\Doublets.App.csproj", "{BAD2D070-9969-4766-8299-016AC3166A6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doublets.Tests", "Doublets.Tests\Doublets.Tests.csproj", "{B05C6CCE-26B8-42AB-BB03-A91B7CC7D37F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doublets.Library", "Doublets.Library\Doublets.Library.csproj", "{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAD2D070-9969-4766-8299-016AC3166A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD2D070-9969-4766-8299-016AC3166A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD2D070-9969-4766-8299-016AC3166A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD2D070-9969-4766-8299-016AC3166A6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05C6CCE-26B8-42AB-BB03-A91B7CC7D37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05C6CCE-26B8-42AB-BB03-A91B7CC7D37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05C6CCE-26B8-42AB-BB03-A91B7CC7D37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05C6CCE-26B8-42AB-BB03-A91B7CC7D37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

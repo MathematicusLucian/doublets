@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Doublets.Library;
 
 namespace Doublets.Tests;
 
@@ -19,7 +20,7 @@ public class Doublets_Test1
     public void Test_BreadthFirstSearch_ValidTransformationPath()
     {
         // Arrange
-        var dictionary = new HashSet<string> { "spin", "spit", "spat", "spot", "span" };
+        var dictionary = new HashSet<string> { "spin", "spit", "spat", "spot", "span" }; // Not in alphabetical order
         string startWord = "spin";
         string endWord = "spot";
 
@@ -127,7 +128,7 @@ public class Doublets_Test1
     public void Test_BreadthFirstSearch_MultipleShortestPaths()
     {
         // Arrange
-        var dictionary = new HashSet<string> { "spin", "spit", "spot", "span", "spat" };
+        var dictionary = new HashSet<string> { "spin", "spit", "spot", "span", "spat" }; // Not in alphabetical order
         string startWord = "spin";
         string endWord = "spot";
 

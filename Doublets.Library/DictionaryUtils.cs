@@ -7,7 +7,7 @@ namespace Doublets.Library;
 
 public class DictionaryUtils
 {
-    public static HashSet<string> LoadDictionary(string dictionaryFile)
+    public static HashSet<string>? LoadDictionary(string dictionaryFile)
     {
         return new HashSet<string>(
             File.ReadAllLines(dictionaryFile)
@@ -16,7 +16,7 @@ public class DictionaryUtils
         );
     }
 
-    private static List<string> GetValidNeighbors(string word, HashSet<string> dictionary)
+    public static List<string>? GetValidNeighbors(string word, HashSet<string> dictionary)
     {
         var neighbors = new List<string>();
         var wordArray = word.ToCharArray();
@@ -44,7 +44,7 @@ public class DictionaryUtils
         return neighbors;
     }
 
-    private static List<string> ConstructPath(string meetingWordFromStart, string meetingWordFromEnd,
+    public static List<string>? ConstructPath(string meetingWordFromStart, string meetingWordFromEnd,
                                               Dictionary<string, string> visitedFromStart,
                                               Dictionary<string, string> visitedFromEnd)
     {
@@ -67,6 +67,18 @@ public class DictionaryUtils
             currentWord = visitedFromEnd[currentWord];
         }
 
+        return path;
+    }
+
+    public static List<string>? ReconstructPath(Dictionary<string, string> cameFrom, string currentWord)
+    {
+        var path = new List<string>();
+        while (currentWord != string.Empty | currentWord != null)
+        {
+            path.Add(currentWord);
+            cameFrom.TryGetValue(currentWord, out currentWord);
+        }
+        path.Reverse();
         return path;
     }
 }

@@ -114,7 +114,7 @@ public class BreadthFirstSearch
         {
             var currentWord = queue.Dequeue();
 
-            foreach (var neighbor in GetValidNeighbors(currentWord, dictionary))
+            foreach (var neighbor in DictionaryUtils.GetValidNeighbors(currentWord, dictionary))
             {
                 if (visitedFromThisSide.ContainsKey(neighbor))
                 {
@@ -124,7 +124,7 @@ public class BreadthFirstSearch
                 if (visitedFromOtherSide.ContainsKey(neighbor))
                 {
                     // Found a meeting point, reconstruct the path
-                    result = ConstructPath(currentWord, neighbor, visitedFromThisSide, visitedFromOtherSide);
+                    result = DictionaryUtils.ConstructPath(currentWord, neighbor, visitedFromThisSide, visitedFromOtherSide);
                     return true;
                 }
 

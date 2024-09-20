@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Doublets\Doublets.csproj" />
+    <ProjectReference Include="..\Doublets.Library\Doublets.Library.csproj" />
   </ItemGroup>
 
 </Project>

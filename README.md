@@ -4,11 +4,15 @@ A C#.NET console application to compute the shortest sequence of four-letter wor
 
 This is essentially graph traversal (visiting vertices/edges exactly once, in a well-defined order) of a binary tree.
 
+## Run
+
+`dotnet run --project Doublets.App -d words-english.txt -o result.txt -s span -e spot`
+
 ## Functionality
 
 1. **Command-line Argument Parsing:** The program takes 4 arguments: `DictionaryFile`, `StartWord`, `EndWord`, and `ResultFile`. It ensures the correct number of arguments and handles the cases where the dictionary file is missing.
 
-2. **Dictionary Parsing:** This dictionary file contains four-letter words, which we’ll use to find the transformation sequence. Load the dictionary from the `DictionaryFile`, filter out words that are not exactly four letters, and convert to lowercase for case-insensitive comparison.
+2. **Dictionary Parsing:** This dictionary file contains four-letter words, which we’ll use to find the transformation sequence. Load the dictionary from the `DictionaryFile`, filter out words that are not exactly four letters, and convert to lowercase for case-insensitive comparison. This may not necessarily be in alphabetical order.
 
 3. **Breadth-First Search (BFS):** This essentially requires traversal of a tree. BFS is the best algorithm to find the shortest path (in terms of word transformations) from the `StartWord` to the `EndWord`, because it explores all possible transformations level by level. The BFS implementation will commence from the `StartWord` (initialize a BFS queue) and explore all one-letter transformations. For each word in the queue, generate all possible valid transformations (changing the `StartWord` one letter at a time.) For each transformation, the new word should exist in the dictionary and should not have been visited before (to avoid cycles). It will stop when the `EndWord` is found and return the shortest path.
 
@@ -26,6 +30,10 @@ This is essentially graph traversal (visiting vertices/edges exactly once, in a 
    - **Efficiency:** The BFS ensures that the shortest transformation path is found efficiently.
    - **Scalability:** Using a hash set (`HashSet<string>`) ensures that dictionary lookups are fast (O(1) average time complexity) when checking if a word exists in the dictionary or if a word has been visited. The BFS will stop early if we find the `EndWord`.
    - **Memory Usage:** The BFS queue and the visited set will both scale with the number of four-letter words in the dictionary.
+
+   **Other possibilities:**:
+
+   - Threading
 
 ## Alternate approaches
 
@@ -63,6 +71,8 @@ Key Differences in Bidirectional BFS:
 - **Path Reconstruction**: When the two BFS searches meet, the full path is reconstructed by combining the paths from the `startWord` and `endWord`.
 
 ## Testing
+
+`dotnet test --logger "trx;LogFileName=test_results.trx"`
 
 ### Unit tests ('red-green refactor'/TDD):
 
