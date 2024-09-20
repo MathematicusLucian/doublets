@@ -11,28 +11,6 @@ namespace Doublets.App
 {
     class Program
     {
-        public class Options
-        {
-            public void ValidateArgs()
-            {
-                if (StartWord.Length < 4) throw new ArgumentException($"StartWord length should be 4 characters");
-                if (EndWord.Length < 4) throw new ArgumentException($"EndWord length should be 4 characters");
-                if (!File.Exists(DictionaryFile)) throw new ArgumentException($"DictionaryFile file not found: {DictionaryFile}");
-            }
-
-            [Option('d', "dictionaryFile", Required = true, HelpText = "Requires dictionary filename")]
-            public string DictionaryFile { get; set; } = default!;
-
-            [Option('o', "resultFile", Required = false, HelpText = "Requires results filename.")]
-            public string ResultFile { get; set; } = default!;
-
-            [Option('s', "startWord", Required = true, HelpText = "Requires startWord.")]
-            public string StartWord { get; set; } = default!;
-
-            [Option('e', "endWord", Required = true, HelpText = "Requires endWord.")]
-            public string EndWord { get; set; } = default!;
-        }
-
         static void Main(string[] args)
         {
             try
@@ -42,47 +20,54 @@ namespace Doublets.App
                     {
                         argsParsed.ValidateArgs();
 
-                        string dictionaryFile = argsParsed.DictionaryFile;
-                        string resultFile = argsParsed.ResultFile;
-                        string startWord = argsParsed.StartWord.ToLower();
-                        string endWord = argsParsed.EndWord.ToLower();
-
                         try
                         {
-                            // Load the dictionary of four-letter words
-                            HashSet<string> dictionary = DictionaryUtils.LoadDictionary(dictionaryFile);
-
-                            // Find the shortest transformation sequence
-                            List<string> result = BreadthFirstSearch.FindPath(dictionary, startWord, endWord);
-
-                            if (result == null)
-                            {
-                                Console.WriteLine("No valid doublets path found.");
-                            }
-                            else
-                            {
-                                // Write the result to the ResultFile
-                                ResultsOutput(resultFile, result);
-                            }
+                            var doubletsProcessor = new DoubletsProcessor(
+                                new DoubletsProcessorConfiguration(argsParsed, "BFS"),
+                                new ResultsOutput(argsParsed.ResultFile)
+                            )
+                            .SearchForPath()
+                            .SaveResults(); 
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine("An error occurred: " + ex.Message);
+                            Console.WriteLine("An error occurred: {0}",  ex.Message);
                         }
                     }
                 );
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 Console.WriteLine("Usage: -d <DictionaryFile> -o <ResultFile> -s <StartWord> -e <EndWord>");
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex);
+            }
+        }
+    }
+
+    public class ResultsOutput : IResultsOutput
+    {
+        private readonly string _resultFile;
+        public ResultsOutput(string resultFile)
+        {
+            _resultFile = resultFile;
         }
 
-        public static void ResultsOutput(string resultFile, List<string> result)
+        public void SaveResults(List<string> result)
         {
-            File.WriteAllLines(resultFile, result);
-            Console.WriteLine("Doublets - Path: {0} | Length: {1}",String.Join(",",result),result.Count);
-            Console.WriteLine("Doublets path written to " + resultFile);
+            if (result == null)
+            {
+                Console.WriteLine("No valid doublets path found.");
+            }
+            else
+            {
+                // Write the result to the ResultFile
+                File.WriteAllLines(_resultFile, result);
+                Console.WriteLine("Doublets - Path: {0} | Length: {1}",String.Join(",",result),result.Count);
+                Console.WriteLine("Doublets path written to " + _resultFile);
+            }
         }
     }
 }
