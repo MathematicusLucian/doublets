@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Doublets.Library;
 
@@ -16,16 +17,19 @@ public class DictionaryUtils
         );
 
         // Filter to words by length
-        // Task dictionaryWords = await GetWordsByLength(dictionaryWords, 4);
-
-        return dictionaryWords;
+        return GetWordsByLength(dictionaryWords, 4);
     }
 
-    // public static async Task<HashSet<string>>? GetWordsByLength(HashSet dictionaryWords, int wordsLengthFilterValue)
-    // {
-    //     Task.Delay(3000).Wait();
-    //     return dictionaryWords;
-    // }
+    public static HashSet<string>? GetWordsByLength(HashSet<string> dictionaryWords, int wordsLengthFilterValue)
+    {
+        var validWords = new HashSet<string>();
+        var wordLengthAndAlphabetRegex = new Regex("^[a-z]{" + wordsLengthFilterValue + "}$");
+        foreach (var word in dictionaryWords)
+        {
+            if (wordLengthAndAlphabetRegex.IsMatch(word)) validWords.Add(word);
+        }
+        return validWords;
+    }
 
     public static List<string>? GetValidNeighbors(string word, HashSet<string> dictionary)
     {
