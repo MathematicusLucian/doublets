@@ -1,0 +1,8 @@
+{
+    "profiles": {
+      "Doublets": {
+        "commandName": "Project",
+        "commandLineArgs": "-d words-english.txt -o result.txt -s span -e spot"
+      }
+    }
+  }
