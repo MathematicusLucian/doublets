@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doublets.Tests", "Doublets.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doublets.Library", "Doublets.Library\Doublets.Library.csproj", "{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doublets.Benchmark", "Doublets.Benchmark\Doublets.Benchmark.csproj", "{94BB9F2D-FF4C-4766-90B0-350E7DAF2778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8AC4504-DA6E-4564-8CE9-5391DCD8465B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94BB9F2D-FF4C-4766-90B0-350E7DAF2778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BB9F2D-FF4C-4766-90B0-350E7DAF2778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BB9F2D-FF4C-4766-90B0-350E7DAF2778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BB9F2D-FF4C-4766-90B0-350E7DAF2778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

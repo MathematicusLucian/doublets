@@ -4,10 +4,6 @@ A C#.NET console application to compute the shortest sequence of four-letter wor
 
 This is essentially graph traversal (visiting vertices/edges exactly once, in a well-defined order) of a binary tree.
 
-## Run
-
-`dotnet run --project Doublets.App -d words-english.txt -o result.txt -s span -e spot`
-
 ## Functionality
 
 1. **Command-line Argument Parsing:** The program takes 4 arguments: `DictionaryFile`, `StartWord`, `EndWord`, and `ResultFile`. It ensures the correct number of arguments and handles the cases where the dictionary file is missing.
@@ -69,6 +65,14 @@ Key Differences in Bidirectional BFS:
 - **Visited Dictionaries**: Two C# dictionaries, `startVisited` and `endVisited`, are used to store the visited words from both directions, along with the parent word used to reconstruct the path.
 - **Early Termination**: The search terminates early when the two BFS searches meet in the middle.
 - **Path Reconstruction**: When the two BFS searches meet, the full path is reconstructed by combining the paths from the `startWord` and `endWord`.
+
+## Run
+
+`dotnet run --project Doublets.App -d words-english.txt -o result.txt -s span -e spot`
+
+## BFS Benchmark
+
+`dotnet test ~/Doublets.Benchmark/Doublets.Benchmark.csproj --logger "html;logfilename=testResults.html"`
 
 ## Testing
 
