@@ -9,19 +9,6 @@ public class ASearch
 {
     public static List<string> FindPath(HashSet<string> dictionary, string startWord, string endWord)
     {
-        // Validate the StartWord and EndWord
-        if (!dictionary.Contains(startWord) || !dictionary.Contains(endWord))
-        {
-            Console.WriteLine("StartWord or EndWord not found in the dictionary.");
-            return new List<string>();
-        }
-
-        // Edge case: startWord is the same as endWord
-        if (startWord == endWord)
-        {
-            return new List<string> { startWord };
-        }
-
         // Priority queue for the open set, using f(n) to prioritize nodes
         var openSet = new SortedList<double, string>();
         var gCosts = new Dictionary<string, int>(); // g(n) cost map

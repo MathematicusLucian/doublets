@@ -9,12 +9,6 @@ public class BidirectionalBFS
 {
     public static List<string> FindPath(HashSet<string> dictionary, string startWord, string endWord)
     {
-        // Edge case: startWord is the same as endWord
-        if (startWord == endWord)
-        {
-            return new List<string> { startWord };
-        }
-
         // Bidirectional BFS setup
         var startQueue = new Queue<string>();
         var endQueue = new Queue<string>();

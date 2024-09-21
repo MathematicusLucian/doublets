@@ -10,19 +10,6 @@ public class BreadthFirstSearch
     // BFS to find the shortest transformation sequence
     public static List<string> FindPath(HashSet<string> dictionary, string startWord, string endWord)
     {
-        // Validate the StartWord and EndWord
-        if (!dictionary.Contains(startWord) || !dictionary.Contains(endWord))
-        {
-            Console.WriteLine("StartWord or EndWord not found in the dictionary.");
-            return new List<string>();
-        }
-
-        // Edge case: startWord is the same as endWord
-        if (startWord == endWord)
-        {
-            return new List<string> { startWord };
-        }
-
         // BFS queue stores the word and the path leading to it
         Queue<(string word, List<string> path)> queue = new Queue<(string word, List<string> path)>();
         queue.Enqueue((startWord, new List<string> { startWord }));
@@ -60,6 +47,15 @@ public class BreadthFirstSearch
                 }
             }
         }
+
+        // If no path found, return null
+        return new List<string>();
+    }
+    
+    // BFS to find the shortest transformation sequence
+    public static List<string> FindPath2(HashSet<string> dictionary, string startWord, string endWord)
+    { 
+
 
         // If no path found, return null
         return new List<string>();
